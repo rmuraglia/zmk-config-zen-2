@@ -2,6 +2,9 @@
 #include <dt-bindings/zmk/keys.h>
 #include <dt-bindings/zmk/bt.h>
 
+// ref: https://github.com/geewiz/zmk-config-zen-2/blob/main/config/corneish_zen.keymap
+// ref: https://github.com/sadekbaroudi/zmk-ffkb/blob/master/config/boards/shields/ffkb/ffkb.keymap
+
 / {
   chosen {
 //     zmk,matrix_transform = &default_transform;
@@ -12,6 +15,30 @@
 #define _DEFAULT 0
 #define _LOWER 1
 #define _RAISE 2
+
+// TODO: define aliases and macros
+// text editing
+// windo management
+// system functions
+// others
+
+// TODO: define param values for tapping term, quick tap, combo timeout, etc
+
+/* Key index
+ 0  1  2  3  4         5  6  7  8  9
+10 11 12 13 14        15 16 17 18 19
+20 21 22 23 24        25 26 27 28 29
+        30 31 32    33 34 35         */
+
+// TODO: define combos
+
+// TODO: define behavior and params for e.g. layer tap
+// retrotapping, ignore mod tap interrupt?
+
+// TODO: what to do without leader?
+// only ones I'd be sad to lose are are osx lock, screenshot, emoji selector
+
+// TODO: where to cram the now important bluetooth settings?
 
 / {
         keymap {
