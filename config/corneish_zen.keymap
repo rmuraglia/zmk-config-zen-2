@@ -16,6 +16,7 @@
 #define _DEFAULT 0
 #define _LOWER 1
 #define _RAISE 2
+#define _STICKY 3
 
 #define COMBO_TERM 25
 
@@ -27,6 +28,11 @@
 
 // configure mod tap
 // defaults are actually ok. consider same changes as layer tap if needed
+// might want to make this faster for cmd click
+&mt {
+    tapping-term-ms = <150>;
+    retro-tap;
+};
 
 // create new behavior for shift tap and mod on alphas
 / {
@@ -163,13 +169,13 @@
         default_layer {
             label = "QWERTY";
 // -----------------------------------------------------------------------------------------
-// |  TAB |  Q  |  W  |  E  |  R  |  T  |   |  Y  |  U   |  I  |  O  |  P  | BKSP |
-// | CTRL |  A  |  S  |  D  |  F  |  G  |   |  H  |  J   |  K  |  L  |  ;  |  '   |
-// | SHFT |  Z  |  X  |  C  |  V  |  B  |   |  N  |  M   |  ,  |  .  |  /  | ESC  |
+// |  Q  |  W  |  E  |  R  |  T  |   |  Y  |  U   |  I  |  O  |  P  |
+// |  A  |  S  |  D  |  F  |  G  |   |  H  |  J   |  K  |  L  |  '  |
+// |  Z  |  X  |  C  |  V  |  B  |   |  N  |  M   |  ,  |  .  |  /  |
 //                    | GUI | LWR | SPC |   | ENT | RSE  | ALT |
             bindings = <
     &am LCTRL Q &kp W &kp E &kp R &kp T             &kp Y &kp U  &kp I     &kp O   &kp P    
-    &kp A       &kp S &kp D &kp F &kp G             &kp H &kp J  &kp K     &kp L   &kp RET 
+    &kp A       &kp S &kp D &kp F &kp G             &kp H &kp J  &kp K     &kp L   &kp APOS 
     &am LALT Z  &kp X &kp C &kp V &kp B             &kp N &kp M  &kp COMMA &kp DOT &kp FSLH 
     &mt LGUI ESC &lt _LOWER TAB &st LSHIFT BSPC     &st RSHIFT SPACE &lt _RAISE ENTER &mt RGUI DEL
             >;
@@ -178,15 +184,16 @@
         lower_layer {
             label = "LOWER";
 // -----------------------------------------------------------------------------------------
+// media controls // numpad
 // |  TAB |  1  |  2  |  3  |  4  |  5  |   |  6  |  7  |  8  |  9  |  0  | BKSP |
 // | BTCLR| BT1 | BT2 | BT3 | BT4 | BT5 |   | LFT | DWN |  UP | RGT |     |      |
 // | SHFT |     |     |     |     |     |   |     |     |     |     |     |      |
 //                    | GUI |     | SPC |   | ENT |     | ALT |
             bindings = <
-   &kp N1       &kp N2       &kp N3       &kp N4       &kp N5         &kp N6   &kp N7   &kp N8 &kp N9    &kp N0
-   &bt BT_SEL 0 &bt BT_SEL 1 &bt BT_SEL 2 &bt BT_SEL 3 &bt BT_SEL 4   &kp LEFT &kp DOWN &kp UP &kp RIGHT &trans 
-   &trans       &trans       &trans       &trans       &trans         &trans   &trans   &trans &trans    &trans 
-                          	        &kp LGUI     &trans       &kp SPACE      &kp RET  &trans   &kp RALT
+   &kp LCTRL  &none    &kp C_VOL_DN  &kp K_MUTE  &kp C_VOL_UP     &kp TAB  &kp N7  &kp N8  &kp N9  &kp PLUS
+   &kp LSHIFT &kp LALT &bt BT_CLR &bt BT_SEL 0 &bt BT_SEL 1       &kp N0   &kp N4  &kp N5  &kp N6  &kp MINUS 
+   &kp LGUI   &none    &kp C_PREV    &kp C_PP    &kp C_NEXT       &kp DOT  &kp N1  &kp N2  &kp N3  &kp FSLH
+                                &trans  &trans  &trans                &kp SPACE  &kp ENT  &kp DEL
             >;
         };
 
