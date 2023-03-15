@@ -23,7 +23,7 @@
 // consider changing tapping term or adding retro tap but maybe this is ok?
 &lt {
     flavor = "hold-preferred";
-}
+};
 
 // configure mod tap
 // defaults are actually ok. consider same changes as layer tap if needed
