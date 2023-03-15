@@ -19,13 +19,48 @@
 
 #define COMBO_TERM 25
 
+// configure layer tap
+// consider changing tapping term or adding retro tap but maybe this is ok?
+&lt {
+    flavor = "hold-preferred";
+}
+
+// configure mod tap
+// defaults are actually ok. consider same changes as layer tap if needed
+
+// create new behavior for shift tap and mod on alphas
+/ {
+    behaviors {
+        st: shift_tap {
+            compatible = "zmk,behavior-hold-tap";
+            label = "SHIFT_TAP";
+            #binding-cells = <2>;
+            flavor = "tap-preferred";
+            tapping-term-ms = <120>;
+            bindings = <&kp>, <&kp>;
+        };
+        am: alpha_mod {
+            compatible = "zmk,behavior-hold-tap";
+            label = "ALPHA_MOD";
+            #binding-cells = <2>;
+            flavor = "balanced";
+            tapping-term-ms = <150>;
+            bindings = <&kp>, <&kp>;
+            retro-tap;
+        };
+    };
+};
+
+
 // TODO: define aliases and macros
 // text editing
 // windo management
 // system functions
 // others
 
-// TODO: define param values for tapping term, quick tap, combo timeout, etc
+// TODO: caps word settings from Sadek?
+
+// TODO: replace all leader stuff with sticky layer
 
 /* Key index
  0  1  2  3  4         5  6  7  8  9
@@ -34,146 +69,140 @@
         30 31 32    33 34 35         */
 
 / {
-        combos {
-                compatible = "zmk,combos";
-                combo_grave {
-                        timeout-ms = <COMBO_TERM>;
-                        key-positions = <0 1>;
-                        bindings = <&kp GRAVE>;
-                };
-                combo_tilde {
-                        timeout-ms = <COMBO_TERM>;
-                        key-positions = <10 11>;
-                        bindings = <&kp TILDE>;
-                };
-                combo_lpar {
-                        timeout-ms = <COMBO_TERM>;
-                        key-positions = <1 2>;
-                        bindings = <&kp LPAR>;
-                };
-                combo_lbkt {
-                        timeout-ms = <COMBO_TERM>;
-                        key-positions = <11 12>;
-                        bindings = <&kp LBKT>;
-                };
-                combo_lbrc {
-                        timeout-ms = <COMBO_TERM>;
-                        key-positions = <21 22>;
-                        bindings = <&kp LBRC>;
-                };
-                combo_rpar {
-                        timeout-ms = <COMBO_TERM>;
-                        key-positions = <2 3>;
-                        bindings = <&kp RPAR>;
-                };
-                combo_rbkt {
-                        timeout-ms = <COMBO_TERM>;
-                        key-positions = <12 13>;
-                        bindings = <&kp RBKT>;
-                };
-                combo_rbrc {
-                        timeout-ms = <COMBO_TERM>;
-                        key-positions = <22 23>;
-                        bindings = <&kp RBRC>;
-                };
-                combo_equal {
-                        timeout-ms = <COMBO_TERM>;
-                        key-positions = <6 7>;
-                        bindings = <&kp EQUAL>;
-                };
-                combo_plus {
-                        timeout-ms = <COMBO_TERM>;
-                        key-positions = <7 8>;
-                        bindings = <&kp PLUS>;
-                };
-                combo_semi {
-                        timeout-ms = <COMBO_TERM>;
-                        key-positions = <8 9>;
-                        bindings = <&kp SEMI>;
-                };
-                combo_minus {
-                        timeout-ms = <COMBO_TERM>;
-                        key-positions = <16 17>;
-                        bindings = <&kp MINUS>;
-                };
-                combo_under {
-                        timeout-ms = <COMBO_TERM>;
-                        key-positions = <17 18>;
-                        bindings = <&kp UNDER>;
-                };
-                combo_colon {
-                        timeout-ms = <COMBO_TERM>;
-                        key-positions = <18 19>;
-                        bindings = <&kp COLON>;
-                };
-                combo_bslh {
-                        timeout-ms = <COMBO_TERM>;
-                        key-positions = <26 27>;
-                        bindings = <&kp BSLH>;
-                };
-                combo_pipe {
-                        timeout-ms = <COMBO_TERM>;
-                        key-positions = <27 28>;
-                        bindings = <&kp PIPE>;
-                };
-                // TODO: command palette, and what used to be leader
+    combos {
+        compatible = "zmk,combos";
+        combo_grave {
+            timeout-ms = <COMBO_TERM>;
+            key-positions = <0 1>;
+            bindings = <&kp GRAVE>;
         };
+        combo_tilde {
+            timeout-ms = <COMBO_TERM>;
+            key-positions = <10 11>;
+            bindings = <&kp TILDE>;
+        };
+        combo_lpar {
+            timeout-ms = <COMBO_TERM>;
+            key-positions = <1 2>;
+            bindings = <&kp LPAR>;
+        };
+        combo_lbkt {
+            timeout-ms = <COMBO_TERM>;
+            key-positions = <11 12>;
+            bindings = <&kp LBKT>;
+        };
+        combo_lbrc {
+            timeout-ms = <COMBO_TERM>;
+            key-positions = <21 22>;
+            bindings = <&kp LBRC>;
+        };
+        combo_rpar {
+            timeout-ms = <COMBO_TERM>;
+            key-positions = <2 3>;
+            bindings = <&kp RPAR>;
+        };
+        combo_rbkt {
+            timeout-ms = <COMBO_TERM>;
+            key-positions = <12 13>;
+            bindings = <&kp RBKT>;
+        };
+        combo_rbrc {
+            timeout-ms = <COMBO_TERM>;
+            key-positions = <22 23>;
+            bindings = <&kp RBRC>;
+        };
+        combo_equal {
+            timeout-ms = <COMBO_TERM>;
+            key-positions = <6 7>;
+            bindings = <&kp EQUAL>;
+        };
+        combo_plus {
+            timeout-ms = <COMBO_TERM>;
+            key-positions = <7 8>;
+            bindings = <&kp PLUS>;
+        };
+        combo_semi {
+            timeout-ms = <COMBO_TERM>;
+            key-positions = <8 9>;
+            bindings = <&kp SEMI>;
+        };
+        combo_minus {
+            timeout-ms = <COMBO_TERM>;
+            key-positions = <16 17>;
+            bindings = <&kp MINUS>;
+        };
+        combo_under {
+            timeout-ms = <COMBO_TERM>;
+            key-positions = <17 18>;
+            bindings = <&kp UNDER>;
+        };
+        combo_colon {
+            timeout-ms = <COMBO_TERM>;
+            key-positions = <18 19>;
+            bindings = <&kp COLON>;
+        };
+        combo_bslh {
+            timeout-ms = <COMBO_TERM>;
+            key-positions = <26 27>;
+            bindings = <&kp BSLH>;
+        };
+        combo_pipe {
+            timeout-ms = <COMBO_TERM>;
+            key-positions = <27 28>;
+            bindings = <&kp PIPE>;
+        };
+        // TODO: command palette, and what used to be leader
+    };
 };
 
-// TODO: define behavior and params for e.g. layer tap
-// retrotapping, ignore mod tap interrupt?
-
-// TODO: what to do without leader?
-// only ones I'd be sad to lose are are osx lock, screenshot, emoji selector
-
-// TODO: where to cram the now important bluetooth settings?
-
+// TODO: make diagram match actual keymap
 / {
-        keymap {
-                compatible = "zmk,keymap";
+    keymap {
+        compatible = "zmk,keymap";
 
-                default_layer {
-                        label = "QWERTY";
+        default_layer {
+            label = "QWERTY";
 // -----------------------------------------------------------------------------------------
 // |  TAB |  Q  |  W  |  E  |  R  |  T  |   |  Y  |  U   |  I  |  O  |  P  | BKSP |
 // | CTRL |  A  |  S  |  D  |  F  |  G  |   |  H  |  J   |  K  |  L  |  ;  |  '   |
 // | SHFT |  Z  |  X  |  C  |  V  |  B  |   |  N  |  M   |  ,  |  .  |  /  | ESC  |
 //                    | GUI | LWR | SPC |   | ENT | RSE  | ALT |
-                        bindings = <
-   &kp Q &kp W &kp E &kp R &kp T   &kp Y &kp U  &kp I     &kp O   &kp P    
-   &kp A &kp S &kp D &kp F &kp G   &kp H &kp J  &kp K     &kp L   &kp RET 
-   &kp Z &kp X &kp C &kp V &kp B   &kp N &kp M  &kp COMMA &kp DOT &kp FSLH 
-                  &kp LGUI &mo _LOWER &kp BSPC   &kp SPACE &mo _RAISE &kp RALT
-                        >;
-                };
-                lower_layer {
-                        label = "LOWER";
+            bindings = <
+    &am LCTRL Q &kp W &kp E &kp R &kp T             &kp Y &kp U  &kp I     &kp O   &kp P    
+    &kp A       &kp S &kp D &kp F &kp G             &kp H &kp J  &kp K     &kp L   &kp RET 
+    &am LALT Z  &kp X &kp C &kp V &kp B             &kp N &kp M  &kp COMMA &kp DOT &kp FSLH 
+    &mt LGUI ESC &lt _LOWER TAB &st LSHIFT BSPC     &st RSHIFT SPACE &lt _RAISE ENTER &mt RGUI DEL
+            >;
+        };
+
+        lower_layer {
+            label = "LOWER";
 // -----------------------------------------------------------------------------------------
 // |  TAB |  1  |  2  |  3  |  4  |  5  |   |  6  |  7  |  8  |  9  |  0  | BKSP |
 // | BTCLR| BT1 | BT2 | BT3 | BT4 | BT5 |   | LFT | DWN |  UP | RGT |     |      |
 // | SHFT |     |     |     |     |     |   |     |     |     |     |     |      |
 //                    | GUI |     | SPC |   | ENT |     | ALT |
-                        bindings = <
+            bindings = <
    &kp N1       &kp N2       &kp N3       &kp N4       &kp N5         &kp N6   &kp N7   &kp N8 &kp N9    &kp N0
    &bt BT_SEL 0 &bt BT_SEL 1 &bt BT_SEL 2 &bt BT_SEL 3 &bt BT_SEL 4   &kp LEFT &kp DOWN &kp UP &kp RIGHT &trans 
    &trans       &trans       &trans       &trans       &trans         &trans   &trans   &trans &trans    &trans 
                           	        &kp LGUI     &trans       &kp SPACE      &kp RET  &trans   &kp RALT
-                        >;
-                };
+            >;
+        };
 
-                raise_layer {
-                        label = "RAISE";
+        raise_layer {
+            label = "RAISE";
 // -----------------------------------------------------------------------------------------
 // |  TAB |  !  |  @  |  #  |  $  |  %  |   |  ^  |  &  |  *  |  (  |  )  | BKSP |
 // | CTRL |     |     |     |     |     |   |  -  |  =  |  [  |  ]  |  \  |  `   |
 // | SHFT |     |     |     |     |     |   |  _  |  +  |  {  |  }  | "|" |  ~   |
 //                    | GUI |     | SPC |   | ENT |     | ALT |
-                        bindings = <
+            bindings = <
    &kp EXCL &kp AT &kp HASH &kp DLLR &kp PRCNT   &kp CARET &kp AMPS  &kp KP_MULTIPLY &kp LPAR &kp RPAR 
    &trans   &trans &trans   &trans   &trans      &kp MINUS &kp EQUAL &kp LBKT        &kp RBKT &kp BSLH 
    &trans   &trans &trans   &trans   &trans      &kp UNDER &kp PLUS  &kp LBRC        &kp RBRC &kp PIPE 
                     	     &kp LGUI &trans   &kp SPACE   &kp RET   &trans    &kp RALT
-                        >;
-                };
+            >;
         };
+    };
 };
