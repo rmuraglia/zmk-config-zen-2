@@ -4,6 +4,7 @@
 
 // ref: https://github.com/geewiz/zmk-config-zen-2/blob/main/config/corneish_zen.keymap
 // ref: https://github.com/sadekbaroudi/zmk-ffkb/blob/master/config/boards/shields/ffkb/ffkb.keymap
+// ref: https://github.com/rmuraglia/qmk_firmware/blob/rmuraglia-ffkb/keyboards/fingerpunch/ffkb_byomcu/keymaps/rmuraglia/keymap.c
 
 / {
   chosen {
@@ -15,6 +16,8 @@
 #define _DEFAULT 0
 #define _LOWER 1
 #define _RAISE 2
+
+#define COMBO_TERM 25
 
 // TODO: define aliases and macros
 // text editing
@@ -30,7 +33,92 @@
 20 21 22 23 24        25 26 27 28 29
         30 31 32    33 34 35         */
 
-// TODO: define combos
+/ {
+        combos {
+                compatible = "zmk,combos";
+                combo_grave {
+                        timeout-ms = <COMBO_TERM>;
+                        key-positions = <0 1>;
+                        bindings = <&kp GRAVE>;
+                };
+                combo_tilde {
+                        timeout-ms = <COMBO_TERM>;
+                        key-positions = <10 11>;
+                        bindings = <&kp TILDE>;
+                };
+                combo_lpar {
+                        timeout-ms = <COMBO_TERM>;
+                        key-positions = <1 2>;
+                        bindings = <&kp LPAR>;
+                };
+                combo_lbkt {
+                        timeout-ms = <COMBO_TERM>;
+                        key-positions = <11 12>;
+                        bindings = <&kp LBKT>;
+                };
+                combo_lbrc {
+                        timeout-ms = <COMBO_TERM>;
+                        key-positions = <21 22>;
+                        bindings = <&kp LBRC>;
+                };
+                combo_rpar {
+                        timeout-ms = <COMBO_TERM>;
+                        key-positions = <2 3>;
+                        bindings = <&kp RPAR>;
+                };
+                combo_rbkt {
+                        timeout-ms = <COMBO_TERM>;
+                        key-positions = <12 13>;
+                        bindings = <&kp RBKT>;
+                };
+                combo_rbrc {
+                        timeout-ms = <COMBO_TERM>;
+                        key-positions = <22 23>;
+                        bindings = <&kp RBRC>;
+                };
+                combo_equal {
+                        timeout-ms = <COMBO_TERM>;
+                        key-positions = <6 7>;
+                        bindings = <&kp EQUAL>;
+                };
+                combo_plus {
+                        timeout-ms = <COMBO_TERM>;
+                        key-positions = <7 8>;
+                        bindings = <&kp PLUS>;
+                };
+                combo_semi {
+                        timeout-ms = <COMBO_TERM>;
+                        key-positions = <8 9>;
+                        bindings = <&kp SEMI>;
+                };
+                combo_minus {
+                        timeout-ms = <COMBO_TERM>;
+                        key-positions = <16 17>;
+                        bindings = <&kp MINUS>;
+                };
+                combo_under {
+                        timeout-ms = <COMBO_TERM>;
+                        key-positions = <17 18>;
+                        bindings = <&kp UNDER>;
+                };
+                combo_colon {
+                        timeout-ms = <COMBO_TERM>;
+                        key-positions = <18 19>;
+                        bindings = <&kp COLON>;
+                };
+                combo_bslh {
+                        timeout-ms = <COMBO_TERM>;
+                        key-positions = <26 27>;
+                        bindings = <&kp BSLH>;
+                };
+                combo_pipe {
+                        timeout-ms = <COMBO_TERM>;
+                        key-positions = <27 28>;
+                        bindings = <&kp PIPE>;
+                };
+                // TODO: command palette, and what used to be leader
+        };
+};
 
 // TODO: define behavior and params for e.g. layer tap
 // retrotapping, ignore mod tap interrupt?
