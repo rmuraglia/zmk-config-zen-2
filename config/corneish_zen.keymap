@@ -6,6 +6,15 @@
 // ref: https://github.com/sadekbaroudi/zmk-ffkb/blob/master/config/boards/shields/ffkb/ffkb.keymap
 // ref: https://github.com/rmuraglia/qmk_firmware/blob/rmuraglia-ffkb/keyboards/fingerpunch/ffkb_byomcu/keymaps/rmuraglia/keymap.c
 
+// TODO: define aliases and macros
+// text editing
+// windo management
+// others
+
+// TODO: caps word settings from Sadek?
+
+// TODO: replace all leader stuff with sticky layer
+
 / {
   chosen {
 //     zmk,matrix_transform = &default_transform;
@@ -13,28 +22,28 @@
   };
 };
 
+// define layers
 #define _DEFAULT 0
 #define _LOWER 1
 #define _RAISE 2
 #define _STICKY 3
 
-#define COMBO_TERM 25
-
-// configure layer tap
-// consider changing tapping term or adding retro tap but maybe this is ok?
+// configure hold tap settings
 &lt {
+    // consider changing tapping term or adding retro tap
     flavor = "hold-preferred";
 };
 
-// configure mod tap
-// defaults are actually ok. consider same changes as layer tap if needed
-// might want to make this faster for cmd click
 &mt {
-    tapping-term-ms = <150>;
+    tapping-term-ms = <150>;  // slightly faster to minimize wait before cmd click
     retro-tap;
 };
 
-// create new behavior for shift tap and mod on alphas
+&sl {
+    release-after-ms = <500>;  // basically leader timeout equivalent
+};
+
+// new behaviors for shift tap and mod on alphas
 / {
     behaviors {
         st: shift_tap {
@@ -57,16 +66,9 @@
     };
 };
 
+// Combos
 
-// TODO: define aliases and macros
-// text editing
-// windo management
-// system functions
-// others
-
-// TODO: caps word settings from Sadek?
-
-// TODO: replace all leader stuff with sticky layer
+#define COMBO_TERM 25
 
 /* Key index
  0  1  2  3  4         5  6  7  8  9
@@ -157,7 +159,16 @@
             key-positions = <27 28>;
             bindings = <&kp PIPE>;
         };
-        // TODO: command palette, and what used to be leader
+        combo_cmdpal {
+            timeout-ms = <COMBO_TERM>;
+            key-positions = <28 29>;
+            bindings = <&kp LG(LS(P))>;
+        };
+        combo_leader {
+            timeout-ms = <COMBO_TERM>;
+            key-positions = <20 21>;
+            bindings = <&sl _STICKY>;
+        };
     };
 };
 
@@ -211,5 +222,12 @@
                     	     &kp ESC &kp TAB  &kp BSPC   &trans   &trans    &trans
             >;
         };
+
+        // sticky_layer {
+        //     label = "LEADR";
+        //     bindings = <
+// osx quit, triple backtick, screenshot
+        //     >;
+        // };
     };
 };
