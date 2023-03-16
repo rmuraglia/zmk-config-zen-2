@@ -172,6 +172,24 @@
     };
 };
 
+// define frequently used keyboard shortcuts
+
+// OS and workspace management
+#define EXPOSE LC(UP)  // mission control (aka expose)
+#define WK_L LC(LEFT)  // go to workspace left
+#define WK_R LC(RIGHT) // go to workspace right
+
+// text editing: cursor movement
+
+// text editing: deletion
+
+// window management: window snapping
+
+// deprecated categories (mostly hammerspoon stuff):
+    // window management: cursor focus
+    // window management: window throwing
+    // hammerspoon: alerts, emoji finder
+
 // TODO: make diagram match actual keymap
 / {
     keymap {
@@ -202,7 +220,7 @@
 //                    | GUI |     | SPC |   | ENT |     | ALT |
             bindings = <
    &kp LCTRL  &none    &kp C_VOL_DN  &kp K_MUTE  &kp C_VOL_UP     &kp TAB  &kp N7  &kp N8  &kp N9  &kp PLUS
-   &kp LSHIFT &kp LALT &bt BT_CLR &bt BT_SEL 0 &bt BT_SEL 1       &kp N0   &kp N4  &kp N5  &kp N6  &kp MINUS 
+   &kp LSHIFT &kp LALT &kp WK_L      &kp EXPOSE  &kp WK_R         &kp N0   &kp N4  &kp N5  &kp N6  &kp MINUS 
    &kp LGUI   &none    &kp C_PREV    &kp C_PP    &kp C_NEXT       &kp DOT  &kp N1  &kp N2  &kp N3  &kp FSLH
                                 &trans  &trans  &trans                &kp SPACE  &kp ENTER &kp DEL
             >;
