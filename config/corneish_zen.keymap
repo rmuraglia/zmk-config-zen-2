@@ -6,14 +6,7 @@
 // ref: https://github.com/sadekbaroudi/zmk-ffkb/blob/master/config/boards/shields/ffkb/ffkb.keymap
 // ref: https://github.com/rmuraglia/qmk_firmware/blob/rmuraglia-ffkb/keyboards/fingerpunch/ffkb_byomcu/keymaps/rmuraglia/keymap.c
 
-// TODO: define aliases and macros
-// text editing
-// windo management
-// others
-
 // TODO: caps word settings from Sadek?
-
-// TODO: replace all leader stuff with sticky layer
 
 / {
   chosen {
@@ -175,19 +168,26 @@
 // define frequently used keyboard shortcuts
 
 // OS stuff
-#define EXPOSE LC(UP)  // mission control (aka expose)
+#define EXPOSE  LC(UP)     // mission control (aka expose)
 #define OS_LOCK LG(LC(Q))  // lock screen
-#define SNIP LG(LS(4))  // screenshot portion of screen
+#define SNIP    LG(LS(4))  // screenshot portion of screen
 
-// text editing: cursor movement
-
-// text editing: deletion
+// text editing: cursor movement, text deletion
+#define MWL LA(LEFT)   // move cursor one word left
+#define MWR LA(RIGHT)  // move cursor one word right
+#define MLL LC(A)      // move cursor to beginning of line
+#define MLR LC(E)      // move cursor to end of line
+#define DWL LA(BSPC)   // delete one word left
+#define DWR LA(DEL)    // delete one word right
+#define DLL LC(U)      // delete to beginning of line
+#define DLR LC(K)      // delete to end of line
 
 // window management: workspace navigation
 #define WK_L LC(LEFT)  // go to workspace left
 #define WK_R LC(RIGHT) // go to workspace right
 
 // window management: window snapping
+// TODO: if I really wanted to do this, would need to figure out layer specific combos to prevent overlap with brackets, etc
 
 // deprecated categories (mostly hammerspoon stuff):
     // window management: cursor focus
@@ -238,9 +238,9 @@
 // | SHFT |     |     |     |     |     |   |  _  |  +  |  {  |  }  | "|" |  ~   |
 //                    | GUI |     | SPC |   | ENT |     | ALT |
             bindings = <
-   &kp EXCL &kp AT &kp HASH &kp DLLR &kp PRCNT   &kp CARET &kp AMPS  &kp KP_MULTIPLY &kp LPAR &kp RPAR 
-   &trans   &trans &trans   &trans   &trans      &kp LEFT &kp DOWN &kp UP  &kp RIGHT &none 
-   &trans   &trans &trans   &trans   &trans      &kp UNDER &kp PLUS  &kp LBRC        &kp RBRC &kp PIPE 
+   &trans   &trans &trans   &trans   &trans      &kp DLL  &kp DWL  &kp DWR &kp DLR   &trans
+   &trans   &trans &trans   &trans   &trans      &kp LEFT &kp DOWN &kp UP  &kp RIGHT &trans
+   &trans   &trans &trans   &trans   &trans      &kp MLL  &kp MWL  &kp MWR &kp MLR   &trans
                     	     &kp ESC &kp TAB  &kp BSPC   &trans   &trans    &trans
             >;
         };
