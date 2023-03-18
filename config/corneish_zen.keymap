@@ -168,9 +168,9 @@
 // define frequently used keyboard shortcuts
 
 // OS stuff
-#define EXPOSE  LC(UP)     // mission control (aka expose)
-#define OS_LOCK LG(LC(Q))  // lock screen
-#define SNIP    LG(LS(4))  // screenshot portion of screen
+#define EXPOSE  LC(UP)      // mission control (aka expose)
+#define OS_LOCK LG(LC(Q))   // lock screen
+#define SNIP    LG(LS(N4))  // screenshot portion of screen
 
 // text editing: cursor movement, text deletion
 #define MWL LA(LEFT)   // move cursor one word left
@@ -248,8 +248,8 @@
         sticky_layer {
             label = "LEADR";
             bindings = <
-    &kp OS_LOCK  &none     &none  &none  &none          &none  &none  &none  &none  &none
-    &none        &kp SNIP  &none  &none  &none          &none  &none  &none  &none  &none
+    &kp OS_LOCK  &none     &none  &none  &none          &none  &none  &none  &none  &bt BT_CLR
+    &none        &kp SNIP  &none  &none  &none          &bt BT_PRV &bt BT_SEL 0 &bt BT_SEL 1 &bt BT_SEL 2 &bt BT_NXT
     &none        &none     &none  &none  &none          &none  &none  &none  &none  &none
                   &none  &none  &none          &none  &none  &none
 // osx quit, triple backtick, screenshot, bluetooth stuff
