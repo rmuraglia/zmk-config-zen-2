@@ -215,7 +215,7 @@
         };
 
         lower_layer {
-            label = "LOWER";
+            label = "SYSNUM";
 // -----------------------------------------------------------------------------------------
 // media controls // numpad
 // |  TAB |  1  |  2  |  3  |  4  |  5  |   |  6  |  7  |  8  |  9  |  0  | BKSP |
@@ -231,7 +231,7 @@
         };
 
         raise_layer {
-            label = "RAISE";
+            label = "EDITOR";
 // -----------------------------------------------------------------------------------------
 // |  TAB |  !  |  @  |  #  |  $  |  %  |   |  ^  |  &  |  *  |  (  |  )  | BKSP |
 // | CTRL |     |     |     |     |     |   |  -  |  =  |  [  |  ]  |  \  |  `   |
@@ -246,7 +246,7 @@
         };
 
         sticky_layer {
-            label = "LEADR";
+            label = "LEADER";
             bindings = <
     &kp OS_LOCK  &none     &none  &none  &none          &none  &none  &none  &none  &bt BT_CLR
     &none        &kp SNIP  &none  &none  &none          &bt BT_PRV &bt BT_SEL 0 &bt BT_SEL 1 &bt BT_SEL 2 &bt BT_NXT
