@@ -23,13 +23,11 @@
 
 // configure hold tap settings
 &lt {
-    // consider changing tapping term or adding retro tap
     flavor = "hold-preferred";
 };
 
 &mt {
-    tapping-term-ms = <150>;  // slightly faster to minimize wait before cmd click
-    retro-tap;
+    tapping-term-ms = <150>;  // slightly faster to reduce wait before cmd click
 };
 
 &sl {
@@ -187,6 +185,7 @@
 #define WK_R LC(RIGHT) // go to workspace right
 
 // window management: window snapping
+// match default keybinds for rectangle
 // TODO: if I really wanted to do this, would need to figure out layer specific combos to prevent overlap with brackets, etc
 
 // deprecated categories (mostly hammerspoon stuff):
@@ -194,7 +193,7 @@
     // window management: window throwing
     // hammerspoon: alerts, emoji finder
 
-// TODO: make diagram match actual keymap
+// TODO: diagrams for other layers
 / {
     keymap {
         compatible = "zmk,keymap";
@@ -205,7 +204,8 @@
 // |  Q  |  W  |  E  |  R  |  T  |   |  Y  |  U   |  I  |  O  |  P  |
 // |  A  |  S  |  D  |  F  |  G  |   |  H  |  J   |  K  |  L  |  '  |
 // |  Z  |  X  |  C  |  V  |  B  |   |  N  |  M   |  ,  |  .  |  /  |
-//                    | GUI | LWR | SPC |   | ENT | RSE  | ALT |
+//      taps   | ESC | TAB | BSP |   | SPC | ENT  | DEL |
+//      holds  | GUI | LWR | SFT |   | SFT | RSE  | GUI |
             bindings = <
     &am LCTRL Q &kp W &kp E &kp R &kp T             &kp Y &kp U  &kp I     &kp O   &kp P    
     &kp A       &kp S &kp D &kp F &kp G             &kp H &kp J  &kp K     &kp L   &kp APOS 
@@ -216,12 +216,6 @@
 
         lower_layer {
             label = "SYSNUM";
-// -----------------------------------------------------------------------------------------
-// media controls // numpad
-// |  TAB |  1  |  2  |  3  |  4  |  5  |   |  6  |  7  |  8  |  9  |  0  | BKSP |
-// | BTCLR| BT1 | BT2 | BT3 | BT4 | BT5 |   | LFT | DWN |  UP | RGT |     |      |
-// | SHFT |     |     |     |     |     |   |     |     |     |     |     |      |
-//                    | GUI |     | SPC |   | ENT |     | ALT |
             bindings = <
    &kp LCTRL  &none    &kp C_VOL_DN  &kp K_MUTE  &kp C_VOL_UP     &kp TAB  &kp N7  &kp N8  &kp N9  &kp PLUS
    &kp LSHIFT &kp LALT &kp WK_L      &kp EXPOSE  &kp WK_R         &kp N0   &kp N4  &kp N5  &kp N6  &kp MINUS 
@@ -232,11 +226,6 @@
 
         raise_layer {
             label = "EDITOR";
-// -----------------------------------------------------------------------------------------
-// |  TAB |  !  |  @  |  #  |  $  |  %  |   |  ^  |  &  |  *  |  (  |  )  | BKSP |
-// | CTRL |     |     |     |     |     |   |  -  |  =  |  [  |  ]  |  \  |  `   |
-// | SHFT |     |     |     |     |     |   |  _  |  +  |  {  |  }  | "|" |  ~   |
-//                    | GUI |     | SPC |   | ENT |     | ALT |
             bindings = <
    &trans   &trans &trans   &trans   &trans      &kp DLL  &kp DWL  &kp DWR &kp DLR   &trans
    &trans   &trans &trans   &trans   &trans      &kp LEFT &kp DOWN &kp UP  &kp RIGHT &trans
@@ -252,7 +241,6 @@
     &none        &kp SNIP  &none  &none  &none          &bt BT_PRV &bt BT_SEL 0 &bt BT_SEL 1 &bt BT_SEL 2 &bt BT_NXT
     &none        &none     &none  &none  &none          &none  &none  &none  &none  &none
                   &none  &none  &none          &none  &none  &none
-// osx quit, triple backtick, screenshot, bluetooth stuff
             >;
         };
     };
