@@ -4,9 +4,12 @@
 
 // ref: https://github.com/geewiz/zmk-config-zen-2/blob/main/config/corneish_zen.keymap
 // ref: https://github.com/sadekbaroudi/zmk-ffkb/blob/master/config/boards/shields/ffkb/ffkb.keymap
+// case modes : https://github.com/andrewjrae/kyria-keymap/tree/master#case-modes
+// toggle on tap/momentary on hold layers: https://zmk.dev/docs/behaviors/hold-tap#advanced-configuration
 // ref: https://github.com/rmuraglia/qmk_firmware/blob/rmuraglia-ffkb/keyboards/fingerpunch/ffkb_byomcu/keymaps/rmuraglia/keymap.c
 
-// TODO: caps word settings from Sadek?
+// implement special cases as layers with lots of trans, then an exit to base
+// kebab-case, snake_case, camelCase, SCREAMING_SNAKE
 
 / {
   chosen {
@@ -20,6 +23,9 @@
 #define _LOWER 1
 #define _RAISE 2
 #define _STICKY 3
+#define _KEBAB 4
+#define _SNAKE 5
+#define _CAMEL 6
 
 // configure hold tap settings
 &lt {
@@ -237,10 +243,20 @@
         sticky_layer {
             label = "LEADER";
             bindings = <
-    &kp OS_LOCK  &none     &none  &none  &none          &none  &none  &none  &none  &bt BT_CLR
-    &none        &kp SNIP  &none  &none  &none          &bt BT_PRV &bt BT_SEL 0 &bt BT_SEL 1 &bt BT_SEL 2 &bt BT_NXT
-    &none        &none     &none  &none  &none          &none  &none  &none  &none  &none
+    &kp OS_LOCK  &none     &none  &none  &none               &none  &none  &none  &none  &bt BT_CLR
+    &none        &kp SNIP  &none  &to _KEBAB  &none          &bt BT_PRV &bt BT_SEL 0 &bt BT_SEL 1 &bt BT_SEL 2 &bt BT_NXT
+    &none        &none     &none  &none  &none               &none  &none  &none  &none  &none
                   &none  &none  &none          &none  &none  &none
+            >;
+        };
+
+        kebab_layer {
+            label = "KEBAB";
+            bindings = <
+   &trans   &trans &trans   &trans   &trans           &trans   &trans &trans   &trans   &trans
+   &trans   &trans &trans   &trans   &trans           &trans   &trans &trans   &trans   &trans
+   &trans   &trans &trans   &trans   &trans           &trans   &trans &trans   &trans   &trans
+                   &trans   &trans   &trans       &kp MINUS   &to _DEFAULT  &trans
             >;
         };
     };
