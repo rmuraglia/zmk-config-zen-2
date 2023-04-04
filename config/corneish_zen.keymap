@@ -64,6 +64,14 @@
             bindings = <&kp>, <&kp>;
             retro-tap;
         };
+        lmt: layer_mo_to {
+            // https://zmk.dev/docs/behaviors/hold-tap#example-use-cases based on toggle on tap, momentary on hold layers
+            compatible = "zmk,behavior-hold-tap";
+            label="mo_to";
+            #binding-cells = <2>;
+            flavor = "hold-preferred";
+            bindings = <&mo>, <&to>;
+        };
     };
 };
 
@@ -260,7 +268,7 @@
    &trans   &trans &trans   &trans   &trans           &trans   &trans &trans   &trans   &trans
    &trans   &trans &trans   &trans   &trans           &trans   &trans &trans   &trans   &trans
    &trans   &trans &trans   &trans   &trans           &trans   &trans &trans   &trans   &trans
-                   &trans   &trans   &trans       &kp MINUS   &to _DEFAULT  &trans
+                   &trans   &trans   &trans       &kp MINUS   &lmt _RAISE _DEFAULT  &trans
             >;
         };
 
