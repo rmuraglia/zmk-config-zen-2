@@ -65,7 +65,7 @@
             bindings = <&kp>, <&kp>;
             retro-tap;
         };
-        l_mo_to: layer_mo_to {
+        lmt: layer_mo_to {
             compatible = "zmk,behavior-hold-tap";
             label = "l_mo_to";
             #binding-cells = <2>;
@@ -269,7 +269,7 @@
    &trans   &trans &trans   &trans   &trans           &trans   &trans &trans   &trans   &trans
    &trans   &trans &trans   &trans   &trans           &trans   &trans &trans   &trans   &trans
    &trans   &trans &trans   &trans   &trans           &trans   &trans &trans   &trans   &trans
-                   &trans   &trans   &trans       &kp MINUS   &l_mo_to _RAISE _DEFAULT  &trans
+                   &trans   &trans   &trans       &kp MINUS   &lmt _RAISE _DEFAULT  &trans
             >;
         };
 
@@ -279,7 +279,7 @@
    &trans   &trans &trans   &trans   &trans           &trans   &trans &trans   &trans   &trans
    &trans   &trans &trans   &trans   &trans           &trans   &trans &trans   &trans   &trans
    &trans   &trans &trans   &trans   &trans           &trans   &trans &trans   &trans   &trans
-                   &trans   &trans   &trans       &kp UNDER   &to _DEFAULT  &trans
+                   &trans   &trans   &trans       &kp UNDER   &lmt _RAISE _DEFAULT  &trans
             >;
         };
 
@@ -289,7 +289,7 @@
    &trans   &trans &trans   &trans   &trans           &trans   &trans &trans   &trans   &trans
    &trans   &trans &trans   &trans   &trans           &trans   &trans &trans   &trans   &trans
    &trans   &trans &trans   &trans   &trans           &trans   &trans &trans   &trans   &trans
-                   &trans   &trans   &trans       &sk LSHIFT   &to _DEFAULT  &trans
+                   &trans   &trans   &trans       &sk LSHIFT   &lmt _RAISE _DEFAULT  &trans
             >;
         };
 
@@ -299,7 +299,7 @@
     &kp LS(Q) &kp LS(W) &kp LS(E) &kp LS(R) &kp LS(T)             &kp LS(Y) &kp LS(U)  &kp LS(I)  &kp LS(O)  &kp LS(P)
     &kp LS(A) &kp LS(S) &kp LS(D) &kp LS(F) &kp LS(G)             &kp LS(H) &kp LS(J)  &kp LS(K)  &kp LS(L)  &kp APOS 
     &kp LS(Z) &kp LS(X) &kp LS(C) &kp LS(V) &kp LS(B)             &kp LS(N) &kp LS(M)  &kp COMMA  &kp DOT    &kp FSLH 
-                   &trans   &trans   &trans       &trans   &to _DEFAULT  &trans
+                   &trans   &trans   &trans       &trans   &lmt _RAISE _DEFAULT  &trans
             >;
         };
 
@@ -309,7 +309,7 @@
     &kp LS(Q) &kp LS(W) &kp LS(E) &kp LS(R) &kp LS(T)             &kp LS(Y) &kp LS(U)  &kp LS(I)  &kp LS(O)  &kp LS(P)
     &kp LS(A) &kp LS(S) &kp LS(D) &kp LS(F) &kp LS(G)             &kp LS(H) &kp LS(J)  &kp LS(K)  &kp LS(L)  &kp APOS 
     &kp LS(Z) &kp LS(X) &kp LS(C) &kp LS(V) &kp LS(B)             &kp LS(N) &kp LS(M)  &kp COMMA  &kp DOT    &kp FSLH 
-                   &trans   &trans   &trans       &kp MINUS   &to _DEFAULT  &trans
+                   &trans   &trans   &trans       &kp MINUS   &lmt _RAISE _DEFAULT  &trans
             >;
         };
 
@@ -319,7 +319,7 @@
     &kp LS(Q) &kp LS(W) &kp LS(E) &kp LS(R) &kp LS(T)             &kp LS(Y) &kp LS(U)  &kp LS(I)  &kp LS(O)  &kp LS(P)
     &kp LS(A) &kp LS(S) &kp LS(D) &kp LS(F) &kp LS(G)             &kp LS(H) &kp LS(J)  &kp LS(K)  &kp LS(L)  &kp APOS 
     &kp LS(Z) &kp LS(X) &kp LS(C) &kp LS(V) &kp LS(B)             &kp LS(N) &kp LS(M)  &kp COMMA  &kp DOT    &kp FSLH 
-                   &trans   &trans   &trans       &kp UNDER   &to _DEFAULT  &trans
+                   &trans   &trans   &trans       &kp UNDER   &lmt _RAISE _DEFAULT  &trans
             >;
         };
     };
