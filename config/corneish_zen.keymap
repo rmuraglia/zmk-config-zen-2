@@ -65,9 +65,9 @@
             bindings = <&kp>, <&kp>;
             retro-tap;
         };
-        lmt: layer_mo_to {
+        l_mo_to: layer_mo_to {
             compatible = "zmk,behavior-hold-tap";
-            label = "mo_to";
+            label = "l_mo_to";
             #binding-cells = <2>;
             flavor = "hold-preferred";
             bindings = <&mo>, <&to>;
@@ -268,7 +268,7 @@
    &trans   &trans &trans   &trans   &trans           &trans   &trans &trans   &trans   &trans
    &trans   &trans &trans   &trans   &trans           &trans   &trans &trans   &trans   &trans
    &trans   &trans &trans   &trans   &trans           &trans   &trans &trans   &trans   &trans
-                   &trans   &trans   &trans       &kp MINUS   &lmt _RAISE _DEFAULT  &trans
+                   &trans   &trans   &trans       &kp MINUS   &l_mo_to _RAISE _DEFAULT  &trans
             >;
         };
 
