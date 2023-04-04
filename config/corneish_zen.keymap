@@ -10,6 +10,7 @@
 
 // implement special cases as layers with lots of trans, then an exit to base
 // kebab-case, snake_case, camelCase, SCREAMING_SNAKE
+// current way is simple but ugly. consider being smarter with a toggle and a macro: https://discord.com/channels/939959680611020840/939961310387515413/1092622829968699472
 
 / {
   chosen {
@@ -26,6 +27,9 @@
 #define _KEBAB 4
 #define _SNAKE 5
 #define _CAMEL 6
+#define _CAPS 7
+#define _SKEBAB 8
+#define _SSNAKE 9
 
 // configure hold tap settings
 &lt {
@@ -243,10 +247,10 @@
         sticky_layer {
             label = "LEADER";
             bindings = <
-    &kp OS_LOCK  &none     &none  &none  &none               &none  &none  &none  &none  &bt BT_CLR
-    &none        &kp SNIP  &none  &to _KEBAB  &none          &bt BT_PRV &bt BT_SEL 0 &bt BT_SEL 1 &bt BT_SEL 2 &bt BT_NXT
-    &none        &none     &none  &none  &none               &none  &none  &none  &none  &none
-                  &none  &none  &none          &none  &none  &none
+    &kp OS_LOCK  &none     &none  &to _KEBAB  &to _SKEBAB      &none  &none  &none  &none  &bt BT_CLR
+    &none        &kp SNIP  &none  &to _CAMEL  &to _CAPS        &bt BT_PRV &bt BT_SEL 0 &bt BT_SEL 1 &bt BT_SEL 2 &bt BT_NXT
+    &none        &none     &none  &to _SNAKE  &to _SSNAKE      &none  &none  &none  &none  &none
+                                  &none  &none  &none       &none  &none  &none
             >;
         };
 
@@ -257,6 +261,56 @@
    &trans   &trans &trans   &trans   &trans           &trans   &trans &trans   &trans   &trans
    &trans   &trans &trans   &trans   &trans           &trans   &trans &trans   &trans   &trans
                    &trans   &trans   &trans       &kp MINUS   &to _DEFAULT  &trans
+            >;
+        };
+
+        snake_layer {
+            label = "SNAKE";
+            bindings = <
+   &trans   &trans &trans   &trans   &trans           &trans   &trans &trans   &trans   &trans
+   &trans   &trans &trans   &trans   &trans           &trans   &trans &trans   &trans   &trans
+   &trans   &trans &trans   &trans   &trans           &trans   &trans &trans   &trans   &trans
+                   &trans   &trans   &trans       &kp UNDER   &to _DEFAULT  &trans
+            >;
+        };
+
+        camel_layer {
+            label = "CAMEL";
+            bindings = <
+   &trans   &trans &trans   &trans   &trans           &trans   &trans &trans   &trans   &trans
+   &trans   &trans &trans   &trans   &trans           &trans   &trans &trans   &trans   &trans
+   &trans   &trans &trans   &trans   &trans           &trans   &trans &trans   &trans   &trans
+                   &trans   &trans   &trans       &sk LSHIFT   &to _DEFAULT  &trans
+            >;
+        };
+
+        caps_layer {
+            label = "CAPS";
+            bindings = <
+    &am LCTRL LS(Q) &kp LS(W) &kp LS(E) &kp LS(R) &kp LS(T)             &kp LS(Y) &kp LS(U)  &kp LS(I)  &kp LS(O)  &kp LS(P)
+    &kp LS(A)       &kp LS(S) &kp LS(D) &kp LS(F) &kp LS(G)             &kp LS(H) &kp LS(J)  &kp LS(K)  &kp LS(L)  &kp APOS 
+    &am LALT LS(Z)  &kp LS(X) &kp LS(C) &kp LS(V) &kp LS(B)             &kp LS(N) &kp LS(M)  &kp COMMA  &kp DOT    &kp FSLH 
+                   &trans   &trans   &trans       &trans   &to _DEFAULT  &trans
+            >;
+        };
+
+        screaming_kebab_layer {
+            label = "SKEBAB";
+            bindings = <
+    &am LCTRL LS(Q) &kp LS(W) &kp LS(E) &kp LS(R) &kp LS(T)             &kp LS(Y) &kp LS(U)  &kp LS(I)  &kp LS(O)  &kp LS(P)
+    &kp LS(A)       &kp LS(S) &kp LS(D) &kp LS(F) &kp LS(G)             &kp LS(H) &kp LS(J)  &kp LS(K)  &kp LS(L)  &kp APOS 
+    &am LALT LS(Z)  &kp LS(X) &kp LS(C) &kp LS(V) &kp LS(B)             &kp LS(N) &kp LS(M)  &kp COMMA  &kp DOT    &kp FSLH 
+                   &trans   &trans   &trans       &kp MINUS   &to _DEFAULT  &trans
+            >;
+        };
+
+        screaming_snake_layer {
+            label = "SSNAKE";
+            bindings = <
+    &am LCTRL LS(Q) &kp LS(W) &kp LS(E) &kp LS(R) &kp LS(T)             &kp LS(Y) &kp LS(U)  &kp LS(I)  &kp LS(O)  &kp LS(P)
+    &kp LS(A)       &kp LS(S) &kp LS(D) &kp LS(F) &kp LS(G)             &kp LS(H) &kp LS(J)  &kp LS(K)  &kp LS(L)  &kp APOS 
+    &am LALT LS(Z)  &kp LS(X) &kp LS(C) &kp LS(V) &kp LS(B)             &kp LS(N) &kp LS(M)  &kp COMMA  &kp DOT    &kp FSLH 
+                   &trans   &trans   &trans       &kp UNDER   &to _DEFAULT  &trans
             >;
         };
     };
