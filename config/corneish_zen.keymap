@@ -2,17 +2,8 @@
 #include <dt-bindings/zmk/keys.h>
 #include <dt-bindings/zmk/bt.h>
 
-// TODO
-// current case mode implementation is easy to read but ham-fisted
-// consider using toggles and/or macros: https://discord.com/channels/939959680611020840/939961310387515413/1092622829968699472
-// at least something like one layer per separator and one layer for caps
-// e.g. screaming snake would be: toggle caps -> toggle underscore, regular snake would be just toggle underscore
-// so you can reuse the layers for different combinations
-// but then you would lose the clear layer label on the display if you were more "modifying" the state of a layer
-
 / {
   chosen {
-//     zmk,matrix_transform = &default_transform;
     zmk,matrix_transform = &five_column_transform;
   };
 };
@@ -87,46 +78,62 @@
 / {
     combos {
         compatible = "zmk,combos";
-        combo_grave {
+        combo_leader {
             timeout-ms = <COMBO_TERM>;
             key-positions = <0 1>;
+            bindings = <&sl _STICKY>;
+        };
+        combo_grave {
+            timeout-ms = <COMBO_TERM>;
+            key-positions = <1 2>;
             bindings = <&kp GRAVE>;
         };
         combo_tilde {
             timeout-ms = <COMBO_TERM>;
-            key-positions = <10 11>;
+            key-positions = <2 3>;
             bindings = <&kp TILDE>;
         };
-        combo_lpar {
+        combo_lbrc {
             timeout-ms = <COMBO_TERM>;
-            key-positions = <1 2>;
-            bindings = <&kp LPAR>;
+            key-positions = <10 11>;
+            bindings = <&kp LBRC>;
         };
         combo_lbkt {
             timeout-ms = <COMBO_TERM>;
             key-positions = <11 12>;
             bindings = <&kp LBKT>;
         };
-        combo_lbrc {
-            timeout-ms = <COMBO_TERM>;
-            key-positions = <21 22>;
-            bindings = <&kp LBRC>;
-        };
-        combo_rpar {
-            timeout-ms = <COMBO_TERM>;
-            key-positions = <2 3>;
-            bindings = <&kp RPAR>;
-        };
-        combo_rbkt {
+        combo_lpar {
             timeout-ms = <COMBO_TERM>;
             key-positions = <12 13>;
-            bindings = <&kp RBKT>;
+            bindings = <&kp LPAR>;
+        };
+        combo_lt {
+            timeout-ms = <COMBO_TERM>;
+            key-positions = <13 14>;
+            bindings = <&kp LESS_THAN>;
         };
         combo_rbrc {
             timeout-ms = <COMBO_TERM>;
-            key-positions = <22 23>;
+            key-positions = <20 21>;
             bindings = <&kp RBRC>;
         };
+        combo_rbkt {
+            timeout-ms = <COMBO_TERM>;
+            key-positions = <21 22>;
+            bindings = <&kp RBKT>;
+        };
+        combo_rpar {
+            timeout-ms = <COMBO_TERM>;
+            key-positions = <22 23>;
+            bindings = <&kp RPAR>;
+        };
+        combo_gt {
+            timeout-ms = <COMBO_TERM>;
+            key-positions = <23 24>;
+            bindings = <&kp GREATER_THAN>;
+        };
+
         combo_equal {
             timeout-ms = <COMBO_TERM>;
             key-positions = <6 7>;
@@ -171,11 +178,6 @@
             timeout-ms = <COMBO_TERM>;
             key-positions = <28 29>;
             bindings = <&kp LG(LS(P))>;
-        };
-        combo_leader {
-            timeout-ms = <COMBO_TERM>;
-            key-positions = <20 21>;
-            bindings = <&sl _STICKY>;
         };
     };
 };
@@ -294,7 +296,7 @@
         lower_layer {
             label = "SYSNUM";
             bindings = <
-   &kp LCTRL  &none    &kp C_VOL_DN  &kp K_MUTE  &kp C_VOL_UP     &kp TAB  &kp N7  &kp N8  &kp N9  &kp PLUS
+   &kp LCTRL  &kp F4   &kp C_VOL_DN  &kp K_MUTE  &kp C_VOL_UP     &kp TAB  &kp N7  &kp N8  &kp N9  &kp PLUS
    &kp LSHIFT &kp LALT &kp WK_L      &kp EXPOSE  &kp WK_R         &kp N0   &kp N4  &kp N5  &kp N6  &kp MINUS 
    &kp LGUI   &none    &kp C_PREV    &kp C_PP    &kp C_NEXT       &kp DOT  &kp N1  &kp N2  &kp N3  &kp FSLH
                                 &trans  &trans  &trans                &kp SPACE  &kp ENTER &kp DEL
