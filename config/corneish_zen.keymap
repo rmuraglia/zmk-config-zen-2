@@ -239,7 +239,7 @@
         };
 
         tarmak1_layer {
-            label = 'TARMK1';
+            label = "TARMK1";
             bindings = <
     &am LCTRL Q &kp W &kp J &kp R &kp T             &kp Y &kp U  &kp I     &kp O   &kp P
     &kp A       &kp S &kp D &kp F &kp G             &kp M &kp N  &kp E     &kp L   &kp APOS
@@ -249,7 +249,7 @@
         };
 
         tarmak2_layer {
-            label = 'TARMK2';
+            label = "TARMK2";
             bindings = <
     &am LCTRL Q &kp W &kp F &kp R &kp B             &kp Y &kp U  &kp I     &kp O   &kp P
     &kp A       &kp S &kp D &kp T &kp G             &kp M &kp N  &kp E     &kp L   &kp APOS
@@ -259,7 +259,7 @@
         };
 
         tarmak3_layer {
-            label = 'TARMK3';
+            label = "TARMK3";
             bindings = <
     &am LCTRL Q &kp W &kp F &kp J &kp B             &kp Y &kp U  &kp I     &kp O   &kp P
     &kp A       &kp R &kp S &kp T &kp G             &kp M &kp N  &kp E     &kp L   &kp APOS
@@ -269,7 +269,7 @@
         };
 
         tarmak4_layer {
-            label = 'TARMK4';
+            label = "TARMK4";
             bindings = <
     &am LCTRL Q &kp W &kp F &kp P &kp B             &kp J &kp U  &kp I     &kp Y   &kp APOS
     &kp A       &kp R &kp S &kp T &kp G             &kp M &kp N  &kp E     &kp L   &kp O
@@ -279,7 +279,7 @@
         };
 
         tarmak5_layer {
-            label = 'TARMK5';
+            label = "TARMK5";
             bindings = <
     &am LCTRL Q &kp W &kp F &kp P &kp B             &kp J &kp L  &kp U     &kp Y   &kp APOS
     &kp A       &kp R &kp S &kp T &kp G             &kp M &kp N  &kp E     &kp I   &kp O
