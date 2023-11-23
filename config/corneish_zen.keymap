@@ -71,6 +71,7 @@
 };
 
 // Combos
+// TODO: pull this into a separate import as in https://github.com/AlaaSaadAbdo/zmk-config
 
 #define COMBO_TERM 25
 
@@ -204,17 +205,30 @@
 #define DLL LC(U)      // delete to beginning of line
 #define DLR LC(K)      // delete to end of line
 
-// window management: workspace navigation
+// window management
 #define WK_L LC(LEFT)  // go to workspace left
 #define WK_R LC(RIGHT) // go to workspace right
+#define SZ_L_13 LA(LC(D))      // resize window left 1/3
+#define SZ_C_13 LA(LC(F))      // resize window center 1/3
+#define SZ_R_13 LA(LC(G))      // resize window right 1/3
+#define SZ_L_23 LA(LC(E))      // resize window left 2/3
+#define SZ_R_23 LA(LC(T))      // resize window right 2/3
+#define SZ_L_12 LA(LC(LEFT))   // resize window left 1/2
+#define SZ_R_12 LA(LC(RIGHT))  // resize window right 1/2
+#define SZ_U_12 LA(LC(UP))     // resize window up 1/2
+#define SZ_D_12 LA(LC(DOWN))   // resize window down 1/2
+#define SZ_MAX  LA(LC(ENTER))  // resize window maximize
+// maybe add throw across workspaces to this
+// maybe add cursor focus to this (requires hammerspoon)
 
-// window management: window snapping
-// match default keybinds for rectangle
-// TODO: if I really wanted to do this, would need to figure out layer specific combos to prevent overlap with brackets, etc
+// quick app selection
+#define APP_SLACK    LS(LG(LC(LA(Z))))
+#define APP_CHROME   LS(LG(LC(LA(X))))
+#define APP_VSCODE   LS(LG(LC(LA(C))))
+#define APP_ITERM    LS(LG(LC(LA(V))))
+#define APP_OBSIDIAN LS(LG(LC(LA(B))))
 
 // deprecated categories (mostly hammerspoon stuff):
-    // window management: cursor focus
-    // window management: window throwing
     // hammerspoon: alerts, emoji finder
 
 // TODO: diagrams for other layers
@@ -361,9 +375,9 @@
         raise_layer {
             label = "EDITOR";
             bindings = <
-   &trans   &trans &trans   &trans   &trans      &kp DLL  &kp DWL  &kp DWR &kp DLR   &trans
-   &trans   &trans &trans   &trans   &trans      &kp LEFT &kp DOWN &kp UP  &kp RIGHT &trans
-   &trans   &trans &trans   &trans   &trans      &kp MLL  &kp MWL  &kp MWR &kp MLR   &trans
+   &kp SZ_L_23 &kp SZ_L_13 &kp SZ_C_13 &kp SZ_R_13 &kp SZ_R_23      &kp DLL  &kp DWL  &kp DWR &kp DLR   &trans
+   &kp SZ_U_12 &kp SZ_L_12 &kp SZ_MAX  &kp SZ_R_12 &kp SZ_D_12      &kp LEFT &kp DOWN &kp UP  &kp RIGHT &trans
+   &kp APP_SLACK &kp APP_CHROME &kp APP_VSCODE &kp APP_ITERM &kp APP_OBSIDIAN     &kp MLL  &kp MWL  &kp MWR &kp MLR   &trans
                     	     &kp ESC &kp TAB  &kp BSPC   &trans   &trans    &trans
             >;
         };
