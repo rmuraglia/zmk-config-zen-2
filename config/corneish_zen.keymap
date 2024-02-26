@@ -9,21 +9,10 @@
 };
 
 // define layers
-#define _DEFAULT 0  // QWERTY
-#define _TARMAK1 1
-#define _TARMAK2 2
-#define _TARMAK3 3
-#define _TARMAK4 4
-#define _TARMAK5 5  // Colemak Dhm
-#define _KEBAB 6
-#define _SNAKE 7
-#define _CAMEL 8
-#define _CAPS 9
-#define _SKEBAB 10
-#define _SSNAKE 11
-#define _LOWER 12
-#define _RAISE 13
-#define _STICKY 14
+#define _DEFAULT 0  // Colemak Dhm
+#define _LOWER 1
+#define _RAISE 2
+#define _STICKY 3
 
 // configure hold tap settings
 &lt {
@@ -221,144 +210,26 @@
 // maybe add throw across workspaces to this
 // maybe add cursor focus to this (requires hammerspoon)
 
-// quick app selection
-#define APP_SLACK    LS(LG(LC(LA(Z))))
-#define APP_CHROME   LS(LG(LC(LA(X))))
-#define APP_VSCODE   LS(LG(LC(LA(C))))
-#define APP_ITERM    LS(LG(LC(LA(V))))
-#define APP_OBSIDIAN LS(LG(LC(LA(B))))
-
 // deprecated categories (mostly hammerspoon stuff):
-    // hammerspoon: alerts, emoji finder
+    // hammerspoon: alerts, emoji finder, quick app shortcuts
 
-// TODO: diagrams for other layers
 / {
     keymap {
         compatible = "zmk,keymap";
 
         default_layer {
-            label = "QWERTY";
+            label = "BASE";
 // -----------------------------------------------------------------------------------------
-// |  Q  |  W  |  E  |  R  |  T  |   |  Y  |  U   |  I  |  O  |  P  |
-// |  A  |  S  |  D  |  F  |  G  |   |  H  |  J   |  K  |  L  |  '  |
-// |  Z  |  X  |  C  |  V  |  B  |   |  N  |  M   |  ,  |  .  |  /  |
-//      taps   | ESC | TAB | BSP |   | SPC | ENT  | DEL |
-//      holds  | GUI | LWR | SFT |   | SFT | RSE  | GUI |
-            bindings = <
-    &am LCTRL Q &kp W &kp E &kp R &kp T             &kp Y &kp U  &kp I     &kp O   &kp P    
-    &kp A       &kp S &kp D &kp F &kp G             &kp H &kp J  &kp K     &kp L   &kp APOS 
-    &am LALT Z  &kp X &kp C &kp V &kp B             &kp N &kp M  &kp COMMA &kp DOT &kp FSLH 
-    &mt LGUI ESC &lt _LOWER TAB &st LSHIFT BSPC     &st RSHIFT SPACE &lt _RAISE ENTER &mt RGUI DEL
-            >;
-        };
-
-        tarmak1_layer {
-            label = "TARMK1";
-            bindings = <
-    &am LCTRL Q &kp W &kp J &kp R &kp T             &kp Y &kp U  &kp I     &kp O   &kp P
-    &kp A       &kp S &kp D &kp F &kp G             &kp M &kp N  &kp E     &kp L   &kp APOS
-    &am LALT Z  &kp X &kp C &kp V &kp B             &kp K &kp H  &kp COMMA &kp DOT &kp FSLH
-               &trans   &trans   &trans             &trans   &trans   &trans
-            >;
-        };
-
-        tarmak2_layer {
-            label = "TARMK2";
-            bindings = <
-    &am LCTRL Q &kp W &kp F &kp R &kp B             &kp Y &kp U  &kp I     &kp O   &kp P
-    &kp A       &kp S &kp D &kp T &kp G             &kp M &kp N  &kp E     &kp L   &kp APOS
-    &am LALT Z  &kp X &kp C &kp J &kp V             &kp K &kp H  &kp COMMA &kp DOT &kp FSLH
-               &trans   &trans   &trans             &trans   &trans   &trans
-            >;
-        };
-
-        tarmak3_layer {
-            label = "TARMK3";
-            bindings = <
-    &am LCTRL Q &kp W &kp F &kp J &kp B             &kp Y &kp U  &kp I     &kp O   &kp P
-    &kp A       &kp R &kp S &kp T &kp G             &kp M &kp N  &kp E     &kp L   &kp APOS
-    &am LALT Z  &kp X &kp C &kp D &kp V             &kp K &kp H  &kp COMMA &kp DOT &kp FSLH
-               &trans   &trans   &trans             &trans   &trans   &trans
-            >;
-        };
-
-        tarmak4_layer {
-            label = "TARMK4";
-            bindings = <
-    &am LCTRL Q &kp W &kp F &kp P &kp B             &kp J &kp U  &kp I     &kp Y   &kp APOS
-    &kp A       &kp R &kp S &kp T &kp G             &kp M &kp N  &kp E     &kp L   &kp O
-    &am LALT Z  &kp X &kp C &kp D &kp V             &kp K &kp H  &kp COMMA &kp DOT &kp FSLH
-               &trans   &trans   &trans             &trans   &trans   &trans
-            >;
-        };
-
-        tarmak5_layer {
-            label = "TARMK5";
+//      |  Q  |  W  |  F  |  P  |  B  |            |  J  |  L  |  U  |  Y  |  '  |
+//      |  A  |  R  |  S  |  T  |  G  |            |  M  |  N  |  E  |  I  |  O  |
+//      |  Z  |  X  |  C  |  D  |  V  |            |  K  |  H  |  ,  |  .  |  /  |
+//           taps   | ESC | TAB | BSP |            | SPC | ENT | DEL |
+//           holds  | GUI | LWR | SFT |            | SFT | RSE | GUI |
             bindings = <
     &am LCTRL Q &kp W &kp F &kp P &kp B             &kp J &kp L  &kp U     &kp Y   &kp APOS
     &kp A       &kp R &kp S &kp T &kp G             &kp M &kp N  &kp E     &kp I   &kp O
     &am LALT Z  &kp X &kp C &kp D &kp V             &kp K &kp H  &kp COMMA &kp DOT &kp FSLH
-               &trans   &trans   &trans             &trans   &trans   &trans
-            >;
-        };
-
-        kebab_layer {
-            label = "KEBAB";
-            bindings = <
-   &trans   &trans &trans   &trans   &trans           &trans   &trans &trans   &trans   &trans
-   &trans   &trans &trans   &trans   &trans           &trans   &trans &trans   &trans   &trans
-   &trans   &trans &trans   &trans   &trans           &trans   &trans &trans   &trans   &trans
-                   &trans   &trans   &trans       &kp MINUS   &lmt _RAISE _DEFAULT  &trans
-            >;
-        };
-
-        snake_layer {
-            label = "SNAKE";
-            bindings = <
-   &trans   &trans &trans   &trans   &trans           &trans   &trans &trans   &trans   &trans
-   &trans   &trans &trans   &trans   &trans           &trans   &trans &trans   &trans   &trans
-   &trans   &trans &trans   &trans   &trans           &trans   &trans &trans   &trans   &trans
-                   &trans   &trans   &trans       &kp UNDER   &lmt _RAISE _DEFAULT  &trans
-            >;
-        };
-
-        camel_layer {
-            label = "CAMEL";
-            bindings = <
-   &trans   &trans &trans   &trans   &trans           &trans   &trans &trans   &trans   &trans
-   &trans   &trans &trans   &trans   &trans           &trans   &trans &trans   &trans   &trans
-   &trans   &trans &trans   &trans   &trans           &trans   &trans &trans   &trans   &trans
-                   &trans   &trans   &trans       &sk LSHIFT   &lmt _RAISE _DEFAULT  &trans
-            >;
-        };
-
-        caps_layer {
-            label = "CAPS";
-            bindings = <
-    &kp LS(Q) &kp LS(W) &kp LS(E) &kp LS(R) &kp LS(T)             &kp LS(Y) &kp LS(U)  &kp LS(I)  &kp LS(O)  &kp LS(P)
-    &kp LS(A) &kp LS(S) &kp LS(D) &kp LS(F) &kp LS(G)             &kp LS(H) &kp LS(J)  &kp LS(K)  &kp LS(L)  &kp APOS 
-    &kp LS(Z) &kp LS(X) &kp LS(C) &kp LS(V) &kp LS(B)             &kp LS(N) &kp LS(M)  &kp COMMA  &kp DOT    &kp FSLH 
-                   &trans   &trans   &trans       &trans   &lmt _RAISE _DEFAULT  &trans
-            >;
-        };
-
-        screaming_kebab_layer {
-            label = "SKEBAB";
-            bindings = <
-    &kp LS(Q) &kp LS(W) &kp LS(E) &kp LS(R) &kp LS(T)             &kp LS(Y) &kp LS(U)  &kp LS(I)  &kp LS(O)  &kp LS(P)
-    &kp LS(A) &kp LS(S) &kp LS(D) &kp LS(F) &kp LS(G)             &kp LS(H) &kp LS(J)  &kp LS(K)  &kp LS(L)  &kp APOS 
-    &kp LS(Z) &kp LS(X) &kp LS(C) &kp LS(V) &kp LS(B)             &kp LS(N) &kp LS(M)  &kp COMMA  &kp DOT    &kp FSLH 
-                   &trans   &trans   &trans       &kp MINUS   &lmt _RAISE _DEFAULT  &trans
-            >;
-        };
-
-        screaming_snake_layer {
-            label = "SSNAKE";
-            bindings = <
-    &kp LS(Q) &kp LS(W) &kp LS(E) &kp LS(R) &kp LS(T)             &kp LS(Y) &kp LS(U)  &kp LS(I)  &kp LS(O)  &kp LS(P)
-    &kp LS(A) &kp LS(S) &kp LS(D) &kp LS(F) &kp LS(G)             &kp LS(H) &kp LS(J)  &kp LS(K)  &kp LS(L)  &kp APOS 
-    &kp LS(Z) &kp LS(X) &kp LS(C) &kp LS(V) &kp LS(B)             &kp LS(N) &kp LS(M)  &kp COMMA  &kp DOT    &kp FSLH 
-                   &trans   &trans   &trans       &kp UNDER   &lmt _RAISE _DEFAULT  &trans
+    &mt LGUI ESC &lt _LOWER TAB &st LSHIFT BSPC     &st RSHIFT SPACE &lt _RAISE ENTER &mt RGUI DEL
             >;
         };
 
@@ -377,7 +248,7 @@
             bindings = <
    &kp SZ_L_23 &kp SZ_L_13 &kp SZ_C_13 &kp SZ_R_13 &kp SZ_R_23      &kp DLL  &kp DWL  &kp DWR &kp DLR   &trans
    &kp SZ_U_12 &kp SZ_L_12 &kp SZ_MAX  &kp SZ_R_12 &kp SZ_D_12      &kp LEFT &kp DOWN &kp UP  &kp RIGHT &trans
-   &kp APP_SLACK &kp APP_CHROME &kp APP_VSCODE &kp APP_ITERM &kp APP_OBSIDIAN     &kp MLL  &kp MWL  &kp MWR &kp MLR   &trans
+   &trans      &trans      &trans      &trans      &trans           &kp MLL  &kp MWL  &kp MWR &kp MLR   &trans
                     	     &kp ESC &kp TAB  &kp BSPC   &trans   &trans    &trans
             >;
         };
@@ -385,10 +256,10 @@
         sticky_layer {
             label = "LEADER";
             bindings = <
-    &kp OS_LOCK  &none     &none  &to _KEBAB  &to _SKEBAB      &to _DEFAULT  &none  &none  &none  &bt BT_CLR
-    &none        &kp SNIP  &none  &to _CAMEL  &to _CAPS        &bt BT_PRV &bt BT_SEL 0 &bt BT_SEL 1 &bt BT_SEL 2 &bt BT_NXT
-    &none        &none     &none  &to _SNAKE  &to _SSNAKE      &to _TARMAK1  &to _TARMAK2  &to _TARMAK3  &to _TARMAK4  &to _TARMAK5
-                                  &none  &none  &none       &none  &none  &none
+    &kp OS_LOCK  &none     &none  &none  &none      &none  &none  &none  &none  &bt BT_CLR
+    &none        &kp SNIP  &none  &none  &none      &bt BT_PRV &bt BT_SEL 0 &bt BT_SEL 1 &bt BT_SEL 2 &bt BT_NXT
+    &bootloader  &none     &none  &none  &none      &none  &none  &none  &none  &none
+                           &none  &none  &none      &none  &none  &none
             >;
         };
     };
