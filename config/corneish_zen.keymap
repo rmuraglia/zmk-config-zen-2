@@ -184,9 +184,11 @@
 #define DLL LC(U)      // delete to beginning of line
 #define DLR LC(K)      // delete to end of line
 
-// window management
+// window management (OS native)
 #define WK_L LC(LEFT)  // go to workspace left
 #define WK_R LC(RIGHT) // go to workspace right
+
+// window management (via rectangle)
 #define SZ_L_13 LA(LC(D))      // resize window left 1/3
 #define SZ_C_13 LA(LC(F))      // resize window center 1/3
 #define SZ_R_13 LA(LC(G))      // resize window right 1/3
@@ -197,8 +199,13 @@
 #define SZ_U_12 LA(LC(UP))     // resize window up 1/2
 #define SZ_D_12 LA(LC(DOWN))   // resize window down 1/2
 #define SZ_MAX  LA(LC(ENTER))  // resize window maximize
-// maybe add throw across workspaces to this
-// maybe add cursor focus to this (requires hammerspoon)
+#define THRW_L LG(LA(LC(LEFT)))   // throw to workspace left
+#define THRW_R LG(LA(LC(RIGHT)))  // throw to workspace right
+
+// cursor focus (via karabiner)
+#define FCS_1 LS(LG(LA(LC(1))))  // focus cursor on display 1
+#define FCS_2 LS(LG(LA(LC(2))))  // focus cursor on display 2
+#define FCS_3 LS(LG(LA(LC(3))))  // focus cursor on display 3
 
 // deprecated categories (mostly hammerspoon stuff):
     // hammerspoon: alerts, emoji finder, quick app shortcuts
@@ -238,7 +245,7 @@
             bindings = <
    &kp SZ_L_23 &kp SZ_L_13 &kp SZ_C_13 &kp SZ_R_13 &kp SZ_R_23      &kp DLL  &kp DWL  &kp DWR &kp DLR   &trans
    &kp SZ_U_12 &kp SZ_L_12 &kp SZ_MAX  &kp SZ_R_12 &kp SZ_D_12      &kp LEFT &kp DOWN &kp UP  &kp RIGHT &trans
-   &trans      &trans      &trans      &trans      &trans           &kp MLL  &kp MWL  &kp MWR &kp MLR   &trans
+   &kp THRW_L  &kp FCS_1   &kp FCS_2   &kp FCS_3   &kp THRW_R       &kp MLL  &kp MWL  &kp MWR &kp MLR   &trans
                     	     &kp ESC &kp TAB  &kp BSPC   &trans   &trans    &trans
             >;
         };
