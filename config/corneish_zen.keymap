@@ -203,9 +203,9 @@
 #define THRW_R LG(LA(LC(RIGHT)))  // throw to workspace right
 
 // cursor focus (via karabiner)
-#define FCS_1 LS(LG(LA(LC(1))))  // focus cursor on display 1
-#define FCS_2 LS(LG(LA(LC(2))))  // focus cursor on display 2
-#define FCS_3 LS(LG(LA(LC(3))))  // focus cursor on display 3
+#define FCS_1 LS(LG(LA(LC(N1))))  // focus cursor on display 1
+#define FCS_2 LS(LG(LA(LC(N2))))  // focus cursor on display 2
+#define FCS_3 LS(LG(LA(LC(N3))))  // focus cursor on display 3
 
 // deprecated categories (mostly hammerspoon stuff):
     // hammerspoon: alerts, emoji finder, quick app shortcuts
