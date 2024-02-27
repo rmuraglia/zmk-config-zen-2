@@ -73,10 +73,10 @@
 / {
     combos {
         compatible = "zmk,combos";
-        combo_leader {
+        combo_grave {
             timeout-ms = <COMBO_TERM>;
             key-positions = <0 1>;
-            bindings = <&sl _STICKY>;
+            bindings = <&kp GRAVE>;
         };
         combo_rbkt {
             timeout-ms = <COMBO_TERM>;
@@ -103,10 +103,10 @@
             key-positions = <12 13>;
             bindings = <&kp LPAR>;
         };
-        combo_grave {
+        combo_leader {
             timeout-ms = <COMBO_TERM>;
             key-positions = <20 21>;
-            bindings = <&kp GRAVE>;
+            bindings = <&sl _STICKY>;
         };
         combo_rbrc {
             timeout-ms = <COMBO_TERM>;
