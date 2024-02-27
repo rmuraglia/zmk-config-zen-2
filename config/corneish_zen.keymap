@@ -244,7 +244,7 @@
             label = "EDITOR";
             bindings = <
    &kp SZ_L_23 &kp SZ_L_13 &kp SZ_C_13 &kp SZ_R_13 &kp SZ_R_23      &kp DLL  &kp DWL  &kp DWR &kp DLR   &trans
-   &kp SZ_U_12 &kp SZ_L_12 &kp SZ_MAX  &kp SZ_R_12 &kp SZ_D_12      &kp LEFT &kp DOWN &kp UP  &kp RIGHT &trans
+   &kp SZ_L_12 &kp SZ_D_12 &kp SZ_MAX  &kp SZ_U_12 &kp SZ_R_12      &kp LEFT &kp DOWN &kp UP  &kp RIGHT &trans
    &kp THRW_L  &kp FCS_1   &kp FCS_2   &kp FCS_3   &kp THRW_R       &kp MLL  &kp MWL  &kp MWR &kp MLR   &trans
                     	     &kp ESC &kp TAB  &kp BSPC   &trans   &trans    &trans
             >;
