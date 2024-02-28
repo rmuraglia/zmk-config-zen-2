@@ -202,10 +202,12 @@
 #define THRW_L LG(LA(LC(LEFT)))   // throw to workspace left
 #define THRW_R LG(LA(LC(RIGHT)))  // throw to workspace right
 
-// cursor focus (via karabiner)
-#define FCS_1 LS(LG(LA(LC(N1))))  // focus cursor on display 1
-#define FCS_2 LS(LG(LA(LC(N2))))  // focus cursor on display 2
-#define FCS_3 LS(LG(LA(LC(N3))))  // focus cursor on display 3
+// cursor warp (via hammerspoon)
+#define FCS_L LS(LG(LA(LC(L))))  // warp cursor to display left
+#define FCS_R LS(LG(LA(LC(R))))  // warp cursor to display right
+
+// cursor warp (via warpd)
+#define WARPD LG(LA(X))  // hint mode
 
 // deprecated categories (mostly hammerspoon stuff):
     // hammerspoon: alerts, emoji finder, quick app shortcuts
@@ -245,7 +247,7 @@
             bindings = <
    &kp SZ_L_23 &kp SZ_L_13 &kp SZ_C_13 &kp SZ_R_13 &kp SZ_R_23      &kp DLL  &kp DWL  &kp DWR &kp DLR   &trans
    &kp SZ_L_12 &kp SZ_D_12 &kp SZ_MAX  &kp SZ_U_12 &kp SZ_R_12      &kp LEFT &kp DOWN &kp UP  &kp RIGHT &trans
-   &kp THRW_L  &kp FCS_1   &kp FCS_2   &kp FCS_3   &kp THRW_R       &kp MLL  &kp MWL  &kp MWR &kp MLR   &trans
+   &kp THRW_L  &kp FCS_L   &kp WARPD   &kp FCS_R   &kp THRW_R       &kp MLL  &kp MWL  &kp MWR &kp MLR   &trans
                     	     &kp ESC &kp TAB  &kp BSPC   &trans   &trans    &trans
             >;
         };
