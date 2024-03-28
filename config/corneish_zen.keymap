@@ -56,6 +56,13 @@
             tapping-term-ms = <200>;
             bindings = <&mo>, <&to>;
         };
+        // Swapper for smart alt+tab
+        swapper: swapper {
+            compatible = "zmk,behavior-tri-state";
+            #binding-cells = <0>;
+            bindings = <&kt LALT>, <&kp TAB>, <&kt LALT>;
+            ignored-key-positions = <12>;
+        };
     };
 };
 
@@ -175,6 +182,11 @@
             key-positions = <11 13>;
             bindings = <&kp TAB>;
         };
+        combo_del {
+            timeout-ms = <COMBO_TERM>;
+            key-positions = <3 4>;
+            bindings = <&kp DEL>;
+        };
     };
 };
 
@@ -249,7 +261,7 @@
             label = "SYSNUM";
             bindings = <
    &kp LCTRL  &kp F4   &kp C_VOL_DN  &kp K_MUTE  &kp C_VOL_UP     &kp TAB  &kp N7  &kp N8  &kp N9  &none
-   &kp LSHIFT &kp LALT &none         &kp BSPC    &kp DEL          &kp N0   &kp N4  &kp N5  &kp N6  &none
+   &kp LSHIFT &kp LALT &kp LS(TAB)   &swapper    &none            &kp N0   &kp N4  &kp N5  &kp N6  &none
    &kp LGUI   &none    &kp C_PREV    &kp C_PP    &kp C_NEXT       &kp DOT  &kp N1  &kp N2  &kp N3  &none
                                 &none  &trans  &trans             &kp SPACE  &kp ENTER &none
             >;
