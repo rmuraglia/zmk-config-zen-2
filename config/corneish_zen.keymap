@@ -290,11 +290,12 @@
         };
 
         mouse_layer {
+            // other stuff in here:  browser forward/back?, tab cycle, swapper? page refresh? esc, cut, copy, paste?
             label = "MOUSE";
             bindings = <
-    &kp LCTRL  &none     &none  &none  &none      &msc SCRL_LEFT  &msc SCRL_DOWN  &msc SCRL_UP  &msc SCRL_RIGHT  &none
-    &kp LSHIFT &kp LALT  &none  &none  &none      &mmv MOVE_LEFT  &mmv MOVE_DOWN  &mmv MOVE_UP  &mmv MOVE_RIGHT  &none
-    &kp LGUI   &none     &none  &none  &none      &kp FCS_L  &kp WK_L  &kp EXPOSE  &kp WK_R  &kp FCS_R
+    &kp LCTRL  &none     &kp LG(LBKT)  &kp LG(RBKT)  &none      &msc SCRL_LEFT  &msc SCRL_DOWN  &msc SCRL_UP  &msc SCRL_RIGHT  &none
+    &kp LSHIFT &kp LALT  &kp LS(TAB)   &swapper    &kp LG(R)    &mmv MOVE_LEFT  &mmv MOVE_DOWN  &mmv MOVE_UP  &mmv MOVE_RIGHT  &none
+    &kp LGUI   &none     &kp LG(LBRC)  &kp LG(RBRC)  &none      &kp FCS_L  &kp WK_L  &kp EXPOSE  &kp WK_R  &kp FCS_R
                            &none  &none  &to _DEFAULT      &mkp LCLK  &mkp RCLK  &none
             >;
         };
