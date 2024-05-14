@@ -1,3 +1,7 @@
+> [!NOTE]
+> I (rmuraglia) now maintain my corneish zen keymap in my central common [zmk-config](https://github.com/rmuraglia/zmk-config/tree/main) repo
+> The version of my keymap in here is potentially outdated
+
 # Corne-ish Zen V2 Custom Configuration
 
 ![Corne-ish Zen Logo](img/Zen_R3_sticker.png)
